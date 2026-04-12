@@ -1,0 +1,337 @@
+/* ── CSS variables / themes ─────────────────────────────────────────────── */
+
+:root {
+  --bg:          #faf8f2;
+  --bg-card:     #ffffff;
+  --bg-output:   #fffef8;
+  --text:        #1a1a1a;
+  --text-muted:  #6b6b6b;
+  --border:      #ddd8cc;
+  --accent:      #4a7c59;
+  --accent-dark: #3a6347;
+  --accent-text: #ffffff;
+  --btn-sec-bg:  #f0ede5;
+  --btn-sec-text:#1a1a1a;
+  --shadow:      0 1px 4px rgba(0,0,0,0.08);
+  --radius:      8px;
+  --font-ui:     system-ui, -apple-system, "Helvetica Neue", sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg:          #1a1917;
+  --bg-card:     #242220;
+  --bg-output:   #1e1c1a;
+  --text:        #e8e4dc;
+  --text-muted:  #9a9488;
+  --border:      #3a3730;
+  --accent:      #6aab7f;
+  --accent-dark: #5a9b6f;
+  --accent-text: #0e1f14;
+  --btn-sec-bg:  #2e2c28;
+  --btn-sec-text:#e8e4dc;
+  --shadow:      0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+
+.header {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ── Main layout ────────────────────────────────────────────────────────── */
+
+.main {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+/* ── Controls ────────────────────────────────────────────────────────────── */
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  align-items: end;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-group--count {
+  grid-column: span 2;
+}
+
+.control-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.control-actions {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.count-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── Form elements ──────────────────────────────────────────────────────── */
+
+.select,
+.input-number {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 0.9rem;
+  padding: 8px 10px;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.select:focus,
+.input-number:focus {
+  border-color: var(--accent);
+}
+
+.input-number {
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.slider {
+  flex: 1;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+
+.btn {
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s, opacity 0.15s;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn-secondary {
+  background: var(--btn-sec-bg);
+  color: var(--btn-sec-text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--border);
+}
+
+.btn-icon {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-icon:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Output ──────────────────────────────────────────────────────────────── */
+
+.output-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.output-header {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 20px;
+}
+
+.output-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.output-area {
+  background: var(--bg-output);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  min-height: 300px;
+  line-height: 1.9;
+  font-size: 1rem;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-all;
+  box-shadow: var(--shadow);
+}
+
+.output-area.placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Font variants ──────────────────────────────────────────────────────── */
+
+.font-serif {
+  font-family: "游明朝", "Yu Mincho", "YuMincho", "HGS明朝E", "MS PMincho", Georgia, serif;
+}
+
+.font-sans {
+  font-family: "游ゴシック", "Yu Gothic", "YuGothic", "メイリオ", Meiryo, "Hiragino Kaku Gothic ProN", sans-serif;
+}
+
+.font-mono {
+  font-family: "Osaka-Mono", "MS Gothic", "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+
+.footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 16px 20px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .controls {
+    grid-template-columns: 1fr 1fr;
+  }
+  .control-group--count {
+    grid-column: span 2;
+  }
+  .control-actions {
+    grid-column: span 2;
+  }
+  .header-title h1 {
+    font-size: 1.1rem;
+  }
+  .output-area {
+    font-size: 0.95rem;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+  .control-group--count {
+    grid-column: span 1;
+  }
+  .control-actions {
+    grid-column: span 1;
+  }
+}

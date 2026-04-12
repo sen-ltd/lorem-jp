@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorem JP — 日本語ダミーテキスト</title>
+  <meta name="description" content="夏目漱石・宮沢賢治・太宰治・芥川龍之介・坂口安吾の名作から日本語ダミーテキストを生成。段落・文・文字数指定に対応。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-title">
+        <h1 data-i18n="appTitle">日本語ダミーテキスト</h1>
+        <p class="subtitle" data-i18n="appSubtitle">名作文学からダミーテキストを生成</p>
+      </div>
+      <div class="header-actions">
+        <button id="theme-toggle" class="btn-icon" data-i18n-title="theme" title="テーマ切替">🌙</button>
+        <button id="lang-toggle" class="btn-icon">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="controls card">
+      <!-- Source -->
+      <div class="control-group">
+        <label for="source-select" data-i18n="source">作品</label>
+        <select id="source-select" class="select">
+          <!-- populated by JS -->
+        </select>
+      </div>
+
+      <!-- Mode -->
+      <div class="control-group">
+        <label for="mode-select" data-i18n="mode">モード</label>
+        <select id="mode-select" class="select">
+          <option value="paragraphs">段落</option>
+          <option value="sentences">文</option>
+          <option value="characters">文字数</option>
+        </select>
+      </div>
+
+      <!-- Count -->
+      <div class="control-group control-group--count">
+        <label for="count-input" data-i18n="count">数</label>
+        <div class="count-inputs">
+          <input id="count-input" type="number" class="input-number" value="3" min="1" max="10" />
+          <input id="count-slider" type="range" class="slider" value="3" min="1" max="10" />
+        </div>
+      </div>
+
+      <!-- Font -->
+      <div class="control-group">
+        <label for="font-toggle" data-i18n="font">フォント</label>
+        <select id="font-toggle" class="select">
+          <option value="serif">明朝体</option>
+          <option value="sans-serif">ゴシック体</option>
+          <option value="mono">等幅</option>
+        </select>
+      </div>
+
+      <!-- Actions -->
+      <div class="control-actions">
+        <button id="generate-btn" class="btn btn-primary" data-i18n="generate">生成</button>
+        <button id="copy-btn" class="btn btn-secondary" data-i18n="copy">コピー</button>
+      </div>
+    </section>
+
+    <!-- Output -->
+    <section class="output-section">
+      <div class="output-header">
+        <span id="output-meta" class="output-meta"></span>
+      </div>
+      <div id="output-area" class="output-area font-serif placeholder">
+        「生成」ボタンを押してください
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      Texts from
+      <a href="https://www.aozora.gr.jp/" target="_blank" rel="noopener">青空文庫 / Aozora Bunko</a>
+      (public domain) &mdash;
+      <a href="https://github.com/masaru87/lorem-jp" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </footer>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
