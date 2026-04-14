@@ -65,3 +65,10 @@ lorem-jp/
 MIT. See [LICENSE](./LICENSE).
 
 Source texts from [Aozora Bunko](https://www.aozora.gr.jp/) — public domain.
+
+<!-- sen-publish:links -->
+## Links
+
+- 🌐 Demo: https://sen.ltd/portfolio/lorem-jp/
+- 📝 dev.to: https://dev.to/sendotltd/japanese-lorem-ipsum-from-5-classic-authors-why-real-text-beats-random-characters-37c8
+<!-- /sen-publish:links -->
